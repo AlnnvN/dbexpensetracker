@@ -42,6 +42,7 @@ function loadItems(){
         resetStorage();
     }
 
+    
     for (let i = 0; i < retrieveStorageArray().length; i++) {
         newItem(false,i);
     }
