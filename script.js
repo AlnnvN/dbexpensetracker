@@ -6,35 +6,36 @@ const addbutton = document.getElementById("btn1");
 
 const table1 = document.getElementById("table1");
 
-var names = [];
-var isRepeated;
 
 
 addbutton.addEventListener('click',()=>{
 
     let row, nametd, datetd, amounttd, delbtntd, delbtn; 
 
-    isRepeated = false;
-
-    for (let b = 0; b < names.length; b++) //verifica repetições comparando input com array de nodes já listados
-    {
-        if(names[b].innerHTML == nameinput.value)
-        {
-            isRepeated = true;
-        }
-    }
+    let isRepeated = false;
+    checkForRepetitions();
          
-    if(nameinput.value != '' && nameinput.value[0] != ' ' 
+    let addValidation = (nameinput.value != '' && nameinput.value[0] != ' ' 
     && dateinput.value != '' && amountinput.value != '' 
-    && amountinput.value >= 0 && isRepeated === false)
+    && amountinput.value >= 0 && isRepeated === false) //conditions for valid adition
+
+    if(addValidation)//MAIN
     {
         criarElementos();
         caracElementos();
         appendElementos();
-        indexNames();
     }
-    
-    
+
+    function checkForRepetitions() {
+        let names = table1.children;
+        for (let b = 1; b < names.length; b++) //verifica repetições comparando input com array de nodes já listados
+        {
+            if (names[b].children[0].innerHTML == nameinput.value) {
+                isRepeated = true;
+            }
+        }
+    }
+
     //FUNÇÕES
     function criarElementos()
     {
@@ -88,13 +89,9 @@ addbutton.addEventListener('click',()=>{
         amountinput.value = "";
     }
 
-    function indexNames() //coloca nodes no array para comparação de repetições
-    {
-        for (let i = 0; i < table1.children.length-1; i++) 
-        {
-            names[i] = table1.children[i+1].children[0];
-        }
-    }
 })
 
-
+function resetStorage()
+{
+    localStorage.setItem("expense-tracker-local-storage",'[]');
+}
