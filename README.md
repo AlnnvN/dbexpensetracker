@@ -1,2 +1,2 @@
 # dbexpensetracker
-expense tracker with data base (localStorage)
+expense tracker with a data base (localStorage)
