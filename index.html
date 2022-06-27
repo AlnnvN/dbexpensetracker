@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <title>Expense Tracker</title>
+    </head>
+    <body>
+        <div id="hdr-div">
+            <h1 id="title">Expense Tracker</h1>
+            <h2 id="shdr">Add a New Item:</h2>
+        </div>
+        <div id="ipt-div">
+            <form action="input">
+                <h3  class="text1">Name:
+                    <input type="text" id="input-name" class="input1" placeholder="Where was the expense made?">
+                </h3>
+                <h3 class="text1">Date:
+                    <input type="date" id="input-date" class="input1" placeholder="dd/mm/yyyy" required />
+                </h3>
+                <h3  class="text1">Amount:
+                    <input type="number" id="input-number" class="input1" placeholder="e.g. $5">
+                </h3>
+                <input  type="button" id="btn1" value="Add Expense">
+            </form>
+        </div>
+        <div id="table-div">
+            <table id="table1">
+                <tr>
+                    <th>Name</th>
+                    <th>Date</th>
+                    <th>Amount</th>
+                    <th></th>
+                </tr>
+            </table>
+        </div>
+
+        <script src="script.js"></script>
+    </body>
+</html>
